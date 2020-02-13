@@ -5,6 +5,10 @@ using Microsoft.Extensions.Logging;
 using CICD.Mvc.Models;
 using CICD.Mvc.ViewModels;
 using CICD.Domain;
+using System.Threading.Tasks;
+using MimeKit;
+using MailKit.Security;
+using MailKit.Net.Smtp;
 
 namespace CICD.Mvc.Controllers
 {
@@ -21,13 +25,50 @@ namespace CICD.Mvc.Controllers
         public IActionResult Index()
         {
 
-            return Index("1,2,3");
+            return Calculate("1,2,3");
         }
 
-        [HttpPost("input")]
-        public IActionResult Index(string input)
+        //[HttpPost("input")]
+        public  IActionResult Calculate(string input)
         {
-            return View(CalculateSum(input));
+            StringCalculatorViewModel calculationResult = CalculateSum(input);
+            return View("Index", calculationResult);
+        }
+
+
+        public async Task<IActionResult> Email(string input)
+        {
+            StringCalculatorViewModel calculationResult = CalculateSum(input);
+            await SendMail(calculationResult);
+            return View("Index", calculationResult);
+        }
+
+        private async Task SendMail(StringCalculatorViewModel content)
+        {
+            //const string MAIL_HOST = "mail"; // mvc app in Docker container
+            const string MAIL_HOST = "localhost"; // mvc app uitgevoerd vanaf lokaal OS (niet in container)
+
+            const int MAIL_PORT = 1025;
+
+            var message = new MimeMessage();
+            message.From.Add(new MailboxAddress("CICD Web Application", "cicdsolution@howestgp.be"));
+            message.To.Add(new MailboxAddress("Student", "student@sumwanted.com"));
+            message.Subject = "Your calculated Sum";
+            message.Body = new TextPart("plain")
+            {
+                Text = $"Hello, your calculation result: sum of {content.Input} = {content.Sum} " +
+                $"{(content.Error != String.Empty ? $"\n\nError: {content.Error} " : "")}"
+            };
+            using (var mailClient = new SmtpClient())
+            {
+                await mailClient.ConnectAsync(MAIL_HOST, MAIL_PORT, SecureSocketOptions.None);
+                await mailClient.SendAsync(message);
+                await mailClient.DisconnectAsync(true);
+                content.EmailIsSent = true;
+            }
+
+            
+
         }
 
         private StringCalculatorViewModel CalculateSum(string input)
