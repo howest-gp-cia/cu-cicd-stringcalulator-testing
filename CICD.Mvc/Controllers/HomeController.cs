@@ -28,7 +28,7 @@ namespace CICD.Mvc.Controllers
             return Calculate("1,2,3");
         }
 
-        //[HttpPost("input")]
+
         public  IActionResult Calculate(string input)
         {
             StringCalculatorViewModel calculationResult = CalculateSum(input);

@@ -22,6 +22,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Dockerfile = Dockerfile
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CICD.FunctionalTests", "CICD.FunctionalTests\CICD.FunctionalTests.csproj", "{441EE094-85C5-4760-9BEE-B85452936658}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +46,10 @@ Global
 		{23ABC65B-975E-4378-908E-DAE2D25A1EAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23ABC65B-975E-4378-908E-DAE2D25A1EAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23ABC65B-975E-4378-908E-DAE2D25A1EAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{441EE094-85C5-4760-9BEE-B85452936658}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{441EE094-85C5-4760-9BEE-B85452936658}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{441EE094-85C5-4760-9BEE-B85452936658}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{441EE094-85C5-4760-9BEE-B85452936658}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,6 +59,7 @@ Global
 		{43D8717E-20FD-4EAC-9E63-4740FFE3C872} = {4B4A6DC8-52E0-4A20-A232-56CBD5F7BC49}
 		{2918A461-C4FA-4F5F-B0C9-E4879258F99F} = {147E08C6-1D3E-4E09-8A52-5C96CDC96A6D}
 		{23ABC65B-975E-4378-908E-DAE2D25A1EAF} = {147E08C6-1D3E-4E09-8A52-5C96CDC96A6D}
+		{441EE094-85C5-4760-9BEE-B85452936658} = {147E08C6-1D3E-4E09-8A52-5C96CDC96A6D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F2CF7213-6008-4985-84B4-7C6D3012C269}
