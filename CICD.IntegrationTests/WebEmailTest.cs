@@ -10,8 +10,8 @@ namespace CICD.IntegrationTests
 {
     public class WebEmailTest
     {
-        public const string mailHogApiRoot = "http://localhost:8025/api";
-        public const string mvcAppRoot = "https://localhost:5001";
+        public const string mailHogApiRoot = "http://mail:8025/api";
+        public const string mvcAppRoot = "http://mvcapp";
 
         private readonly ITestOutputHelper output;
 

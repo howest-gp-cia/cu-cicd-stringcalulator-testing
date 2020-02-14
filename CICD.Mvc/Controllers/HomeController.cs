@@ -45,9 +45,7 @@ namespace CICD.Mvc.Controllers
 
         private async Task SendMail(StringCalculatorViewModel content)
         {
-            //const string MAIL_HOST = "mail"; // mvc app in Docker container
-            const string MAIL_HOST = "localhost"; // mvc app uitgevoerd vanaf lokaal OS (niet in container)
-
+            const string MAIL_HOST = "mail";
             const int MAIL_PORT = 1025;
 
             var message = new MimeMessage();

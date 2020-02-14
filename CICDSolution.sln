@@ -13,7 +13,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CICD.Domain", "CICD.Domain\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CICD.UnitTests", "CICD.UnitTests\CICD.UnitTests.csproj", "{2918A461-C4FA-4F5F-B0C9-E4879258F99F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CICD.IntegrationTests", "CICD.IntegrationTests\CICD.IntegrationTests.csproj", "{23ABC65B-975E-4378-908E-DAE2D25A1EAF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CICD.IntegrationTests", "CICD.IntegrationTests\CICD.IntegrationTests.csproj", "{23ABC65B-975E-4378-908E-DAE2D25A1EAF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B0EE4BB0-99B0-4F14-AF3C-A467C3BB6D52}"
+	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
+		docker-compose.yml = docker-compose.yml
+		Dockerfile = Dockerfile
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
