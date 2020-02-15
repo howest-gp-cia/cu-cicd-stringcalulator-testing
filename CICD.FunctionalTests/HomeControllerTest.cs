@@ -1,17 +1,19 @@
 using System.Threading.Tasks;
 using System.Net.Http;
 using Xunit;
+using Microsoft.AspNetCore.Mvc.Testing;
+using CICD.Mvc;
 
 namespace CICD.FunctionalTests
 {
-    public class HomeControllerTest: IClassFixture<WebTestFixture>
+    public class HomeControllerTests : IClassFixture<WebApplicationFactory<Startup>>
     {
-        public HomeControllerTest(WebTestFixture factory)
+        protected HttpClient Client { get; }
+
+        public HomeControllerTests(WebApplicationFactory<Startup> factory)
         {
             Client = factory.CreateClient();
         }
-
-        public HttpClient Client { get; }
 
         [Fact]
         public async Task Index_Get_ReturnsSampleCalculationAsync()
