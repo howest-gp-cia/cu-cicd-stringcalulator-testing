@@ -11,6 +11,8 @@ COPY CICD.UnitTests/*.csproj ./CICD.UnitTests/
 RUN dotnet restore ./CICD.UnitTests/*.csproj
 COPY CICD.Mvc/*.csproj ./CICD.Mvc/
 RUN dotnet restore ./CICD.Mvc/*.csproj
+COPY CICD.FunctionalTests/*.csproj ./CICD.FunctionalTests/
+RUN dotnet restore ./CICD.FunctionalTests/*.csproj
 
 # copy source code
 COPY . . 
@@ -18,6 +20,10 @@ COPY . .
 # test stage
 # run separate: cached layer if tests success
 RUN dotnet test CICD.UnitTests/CICD.UnitTests.csproj --verbosity=normal
+
+# test stage
+# run separate: cached layer if tests success
+RUN dotnet test CICD.FunctionalTests/CICD.FunctionalTests.csproj --verbosity=normal
 
 # build in release mode to folder publish
 RUN dotnet publish CICD.Mvc/CICD.Mvc.csproj -c Release -o /publish 
